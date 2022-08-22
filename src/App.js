@@ -5,10 +5,13 @@ import NavBar from './components/NavBar';
 
 
 function App() {
+
+  const saludo = "hola mundo"
+
   return (
     <div>
       <NavBar/>
-      <ItemListContainer/>
+      <ItemListContainer saludo={saludo}/>
     </div>
   );
 }
