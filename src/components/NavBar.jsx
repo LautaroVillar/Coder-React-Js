@@ -11,7 +11,9 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import CardWidget from "./CardWidget";
 import StorefrontIcon from "@mui/icons-material/Storefront";
+
 const pages = ["Products", "Pricing", "Blog"];
+
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
