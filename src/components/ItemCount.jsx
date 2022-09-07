@@ -22,27 +22,21 @@ function ItemCount({ stock, initial}) {
       </Button>
     );
   };
-  const onAdd = () => {
-    console.log("Agregaste " + contador + " al carrito" );
-  };
+
   return (
       <>
-        <Button
-          variant="outlined"
-          onClick={increase}
-        >
-          +
-        </Button>
-        <h3>{contador}</h3>
         <Button
           variant="outlined"
           onClick={decrease}
         >
           -
         </Button>
-
-        <Button onClick={onAdd} variant="outlined">
-          Agregar al carrito
+        <h3>{contador}</h3>
+        <Button
+          variant="outlined"
+          onClick={increase}
+        >
+          +
         </Button>
         </>
 

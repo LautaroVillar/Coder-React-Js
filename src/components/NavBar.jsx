@@ -11,8 +11,9 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import CardWidget from "./CardWidget";
 import StorefrontIcon from "@mui/icons-material/Storefront";
+import { NavLink} from 'react-router-dom';
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = [{enlace:"/categoria/moda", nombre:"Moda"}, {enlace:"/categoria/deportivas", nombre:"Deportivas"},{enlace:"/categoria/aventura", nombre:"Aventura"}];
 
 
 const NavBar = () => {
@@ -31,11 +32,10 @@ const NavBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <StorefrontIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
+       <NavLink to="/" style={{color:"white", textDecoration:"none"}}>
+       <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -46,8 +46,10 @@ const NavBar = () => {
               textDecoration: "none",
             }}
           >
-            E-COMMERCE
+            ZOOMDEPORTES
           </Typography>
+       </NavLink>
+       
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -79,8 +81,8 @@ const NavBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.nombre} onClick={handleCloseNavMenu}>
+                  <NavLink to={page.enlace} style={{textDecoration:"none", color:"white"}}><Typography textAlign="center">{page.nombre}</Typography></NavLink>
                 </MenuItem>
               ))}
             </Menu>
@@ -102,16 +104,16 @@ const NavBar = () => {
               textDecoration: "none",
             }}
           >
-            E-COMMERCE
+            ZOOMDEPORTES
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.nombre}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                <NavLink to={page.enlace} style={{textDecoration:"none", color:"white"}}> {page.nombre} </NavLink>
               </Button>
             ))}
           </Box>

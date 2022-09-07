@@ -1,37 +1,41 @@
+import {  useNavigate } from "react-router-dom"; 
 import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import ItemCount from "./ItemCount";
+import { Button } from "@mui/material";
 
-function Items({product}) {
+
+
+const Items = ({product}) => {
+
+    const {id, img, name, description, price, stock}= product
+    const navigate = useNavigate()
   return (
-    <>
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia component="img" height="150" image={product.img} alt={product.alt} />
+
+   <>
+    <Card sx={{ maxWidth: 400, margin: "15px"}}>
+      <CardMedia component="img"  image={img} alt={name} style={{maxHeight:250}} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {product.name}
+          {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {product.description}
+          {description}
+        </Typography>
+        <Typography>
+          Precio:$ {price}
+        </Typography>
+        <Typography>
+          Stock: {stock}
         </Typography>
       </CardContent>
-      <CardActions
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-        }}
-      >
-          <ItemCount
-        item={product}
-        stock={(product.stock)}
-        initial={(product.initial = 1)}
-        />
+      <CardActions>
+      <Button fullWidth  variant="contained" size="large" onClick={()=>navigate(`/detalle/${id}`)}>Ver más</Button>
       </CardActions>
+      
     </Card>
     </>
   )
