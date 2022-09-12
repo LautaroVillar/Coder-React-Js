@@ -82,7 +82,7 @@ const NavBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page.nombre} onClick={handleCloseNavMenu}>
-                  <NavLink to={page.enlace} style={{textDecoration:"none", color:"white"}}><Typography textAlign="center">{page.nombre}</Typography></NavLink>
+                  <NavLink to={page.enlace} style={{textDecoration:"none"}}><Typography textAlign="center">{page.nombre}</Typography></NavLink>
                 </MenuItem>
               ))}
             </Menu>
@@ -91,8 +91,6 @@ const NavBar = () => {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href=""
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },

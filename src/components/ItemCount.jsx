@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+
 import Button from "@mui/material/Button";
 
 
-function ItemCount({ stock, initial}) {
-  const [contador, setContador] = useState(initial);
+function ItemCount({ stock, count, setCount}) {
+
   const increase = () => {
-    stock > contador ? (
-      setContador(contador + 1)
+    stock > count ? (
+      setCount(count + 1)
     ) : (
       <Button disabled variant="outlined">
         +
@@ -14,8 +14,8 @@ function ItemCount({ stock, initial}) {
     );
   };
   const decrease = () => {
-    contador > 1 ? (
-      setContador(contador - 1)
+    count > 1 ? (
+      setCount(count - 1)
     ) : (
       <Button disabled variant="outlined">
         -
@@ -31,7 +31,7 @@ function ItemCount({ stock, initial}) {
         >
           -
         </Button>
-        <h3>{contador}</h3>
+        <h3>{count}</h3>
         <Button
           variant="outlined"
           onClick={increase}
