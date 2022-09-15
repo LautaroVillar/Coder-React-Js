@@ -2,7 +2,7 @@
 import Button from "@mui/material/Button";
 
 
-function ItemCount({ stock, count, setCount}) {
+function ItemCount({ stock, count, setCount, onAdd}) {
 
   const increase = () => {
     stock > count ? (
@@ -25,9 +25,11 @@ function ItemCount({ stock, count, setCount}) {
 
   return (
       <>
+
         <Button
           variant="outlined"
           onClick={decrease}
+          size="large"
         >
           -
         </Button>
@@ -35,9 +37,19 @@ function ItemCount({ stock, count, setCount}) {
         <Button
           variant="outlined"
           onClick={increase}
+          size="large"
         >
           +
         </Button>
+       
+        <Button
+          variant="outlined"
+          onClick={onAdd}
+          size="large"
+        >
+          Comprar
+        </Button>
+
         </>
 
   );
